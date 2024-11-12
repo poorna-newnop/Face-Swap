@@ -1,4 +1,4 @@
-import { useState, useRef, CSSProperties, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import Webcam from 'react-webcam';
 import BeatLoader from 'react-spinners/BeatLoader';
@@ -66,8 +66,6 @@ const LandingPage = () => {
       const response = await fetch(imageSrcToUse);
       const imageBlob = await response.blob();
 
-      console.log('image', imageBlob);
-
       formData.append('swap_image', new File([imageBlob], 'face.jpg', { type: 'image/jpeg' }));
 
       const headers = new Headers();
@@ -110,11 +108,7 @@ const LandingPage = () => {
         const response = await fetch(url, { method: 'GET', headers: headers });
         const data = await response.json();
 
-        console.log('data', data);
-
         if (data.result.progress === 100) {
-          console.log('Process is complete! Here is the output:', data.result.output[0]);
-          console.log('Thumbnail:', data.result.thumbnail_path);
           setVideoURL(data.result.output[0]);
           setOpacity(1);
           setImageSrc(null);
