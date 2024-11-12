@@ -118,7 +118,7 @@ const LandingPage = () => {
           clearInterval(intervalId);
           setLoading(false);
         } else {
-          console.log(`Current progress: ${data.result.progress}%`);
+          // console.log(`Current progress: ${data.result.progress}%`);
         }
       } catch (error) {
         setLoading(false);
